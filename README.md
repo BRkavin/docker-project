@@ -2,23 +2,15 @@
 
 ## Available Scripts
 
-In the project directory, you can run:
+In the project directory, open docker desktop and run the below command in terminal:
 
-### `npm install`
+### `docker build -t image_name .`
 
 Instal All dependencies in this project
 
-### `npm run dev`
+### `docker run -p 8080:8080 -d image_name`
 
-Runs the app in the development mode.<br />
-Open [http://127.0.0.1:5173](http://127.0.0.1:5173) to view it in the browser.
+Runs the application and you may see new container is created with image_name and run the port.<br />
+Open [http://localhost:8080/](http://localhost:8080/) to view it in the browser.
 
-### Link
-
-- Vite: https://vitejs.dev/guide/
-- Material UI: https://mui.com/
-- Background : https://codepen.io/P1N2O/pen/pyBNzX
-- Box Shadow: https://box-shadow.dev/
-- List Countries API: https://restcountries.com/v3.1/all
-- freecurrencyapi API: https://app.freecurrencyapi.com/dashboard
 
