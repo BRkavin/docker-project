@@ -1,6 +1,6 @@
-import { Box, Container, Grid, Link, Typography } from '@mui/material'
-import axios from 'axios'
+import { Box, Container, Grid, Typography } from '@mui/material'
 import { useContext, useEffect, useState } from 'react'
+import axios from 'axios'
 import InputAmout from './components/InputAmout'
 import SelectCountry from './components/SelectCountry'
 import SwitchCurrency from './components/SwitchCurrency'
@@ -14,6 +14,7 @@ function App() {
     setToCurrency,
     firstAmount,
   } = useContext(CurrencyContext);
+
   const [resultCurrency, setResultCurrency] = useState(0);
   const codeFromCurrency = fromCurrency.split(" ")[1];
   const codeToCurrency = toCurrency.split(" ")[1];
@@ -32,22 +33,34 @@ function App() {
     }
   }, [firstAmount, fromCurrency, toCurrency])
 
-  const boxStyles = {
-    background: "#fdfdfd",
-    marginTop: "10%",
+  // Updated styles using Material-UI's sx prop
+  const containerStyles = {
+    background: "linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab)",
+    backgroundSize: "500% 500%",
+    animation: "gradient 15s ease infinite",
+    fontFamily: "Arial, sans-serif",
+    color: "#fff",
     textAlign: "center",
-    color: "#222",
-    minHeight: "20rem",
-    borderRadius: 2,
-    padding: "4rem 2rem",
-    boxShadow: "0px 10px 15px -3px rgba(0,0,0,0.1)",
-    position: "relative"
-  }
+    padding: "8rem",
+    margin: 4,
+  };
+
+  const headerStyles = {
+    fontSize: "2.5rem",
+    marginBottom: "3rem",
+  };
+
+  const paragraphStyles = {
+    fontSize: "1.2rem",
+    marginBottom: "1.5rem",
+  };
 
   return (
-    <Container maxWidth="md" sx={boxStyles}>
-      <Typography variant='h5' sx={{ marginBottom: "2rem"}}>Stay Ahead with Accurate Conversions</Typography>
-      <Grid container spacing={2}>
+    <Container maxWidth="md" sx={containerStyles}>
+      <Typography variant='h5' sx={headerStyles}>
+        Quick and Fast Conversion
+      </Typography>
+      <Grid container spacing={3}>
         <InputAmout />
         <SelectCountry value={fromCurrency} setValue={setFromCurrency} label="From" />
         <SwitchCurrency />
@@ -55,14 +68,15 @@ function App() {
       </Grid>
 
       {firstAmount ? (
-        <Box sx={{ textAlign: "left", marginTop: "1rem"}}>
-          <Typography>{firstAmount} {fromCurrency} =</Typography>
-          <Typography variant='h5' sx={{ marginTop: "5px", fontWeight: "bold"}}>{resultCurrency*firstAmount} {toCurrency}</Typography>
+        <Box sx={{ textAlign: "center", marginTop: "1rem" }}>
+          <Typography>
+            {firstAmount} {fromCurrency} =
+          </Typography>    
+          <Typography variant='h3' sx={{ marginTop: "8px", fontWeight: "bold" }}>
+            {resultCurrency * firstAmount} {toCurrency}
+          </Typography>
         </Box>
       ) : ""}
-      <Typography fontSize="10px" sx={{ position: "absolute", bottom: "1rem", right: "1rem" }}>
-        <Link target="_blank" rel="noopener" href="https://www.youtube.com/canddev">Follow me on YouTube</Link>
-      </Typography>
     </Container>
   )
 }

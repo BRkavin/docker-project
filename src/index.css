@@ -1,4 +1,4 @@
-body {
+/* body {
 	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
 	background-size: 400% 400%;
 	animation: gradient 15s ease infinite;
@@ -14,4 +14,51 @@ body {
 	100% {
 		background-position: 0% 50%;
 	}
-}
+} */
+body {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	font-family: Arial, sans-serif; /* Use a web-safe font */
+	color: #fff; /* Set a default text color */
+	text-align: center;
+	padding: 2rem;
+	margin-left: 3rem;
+  }
+  
+  h1 {
+	font-size: 2.5rem; /* Adjust heading font size */
+	margin-bottom: 1rem; /* Add spacing below headings */
+  }
+  
+  p {
+	font-size: 1.2rem; /* Set a comfortable font size for paragraphs */
+	margin-bottom: 1.5rem; /* Add spacing below paragraphs */
+  }
+  
+  button, a.button {
+	background-color: #23d5ab; /* Match button color to the gradient */
+	color: #fff;
+	padding: 1rem 2rem;
+	font-size: 1rem;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s ease; /* Add a smooth transition effect */
+	text-decoration: none; /* Remove underlines for links */
+  }
+  
+  button:hover, a.button:hover {
+	background-color: #1d9d8e; /* Darker color on hover */
+  }
+  
+  /* Media query for responsiveness */
+  @media (max-width: 768px) {
+	h1 {
+	  font-size: 2rem;
+	}
+	p {
+	  font-size: 1rem;
+	}
+  }
+  
